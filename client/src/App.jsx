@@ -3,7 +3,6 @@ import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
 import Timeline from './pages/Timeline.jsx';
 import PromiseTracker from './pages/PromiseTracker.jsx';
-import EventDetail from './pages/EventDetail.jsx';
 import Admin from './pages/Admin.jsx';
 
 export default function App() {
@@ -14,7 +13,6 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Timeline />} />
           <Route path="/promises" element={<PromiseTracker />} />
-          <Route path="/event/:id" element={<EventDetail />} />
           <Route path="/admin" element={<Admin />} />
         </Routes>
       </main>
