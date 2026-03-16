@@ -1,0 +1,88 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-base: #080b0f;
+  --bg-surface: #0d1117;
+  --bg-card: #111820;
+  --bg-card-hover: #161e28;
+  --bg-elevated: #1a2332;
+
+  --neon-blue: #00d4ff;
+  --neon-blue-dim: #00d4ff44;
+  --neon-red: #ff3b5c;
+  --neon-red-dim: #ff3b5c33;
+  --neon-amber: #ffb800;
+  --neon-amber-dim: #ffb80033;
+  --neon-green: #00ff87;
+  --neon-green-dim: #00ff8733;
+  --neon-purple: #b44dff;
+  --neon-purple-dim: #b44dff33;
+
+  --text-primary: #e8edf2;
+  --text-secondary: #8899aa;
+  --text-dim: #4a5568;
+
+  --border: #1e2d3d;
+  --border-bright: #2a3f55;
+
+  --font-display: 'Barlow Condensed', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --font-body: 'Barlow', sans-serif;
+
+  /* Category colors */
+  --cat-threat: #ff3b5c;
+  --cat-nato: #00d4ff;
+  --cat-promise: #ffb800;
+  --cat-reversal: #b44dff;
+  --cat-economic: #00ff87;
+  --cat-legal: #ff8c42;
+  --cat-victory: #64dfdf;
+
+  /* Status colors */
+  --status-kept: #00ff87;
+  --status-broken: #ff3b5c;
+  --status-pending: #ffb800;
+  --status-reversed: #b44dff;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, #00d4ff0a 0%, transparent 60%),
+    linear-gradient(180deg, #080b0f 0%, #060910 100%);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--neon-blue-dim); }
+
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; font-family: var(--font-body); }
+input, textarea, select { font-family: var(--font-body); }
+
+.neon-text-blue { color: var(--neon-blue); text-shadow: 0 0 20px var(--neon-blue-dim); }
+.neon-text-red { color: var(--neon-red); text-shadow: 0 0 20px var(--neon-red-dim); }
+.neon-text-amber { color: var(--neon-amber); text-shadow: 0 0 20px var(--neon-amber-dim); }
+
+/* Grid background texture */
+.grid-bg::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 0;
+}

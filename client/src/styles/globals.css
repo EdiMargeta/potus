@@ -1,0 +1,256 @@
+/* POTUS PARADOX — Global Styles */
+/* Cyberpunk War Room × Bloomberg Terminal */
+
+:root {
+  /* Core palette */
+  --bg-deep:        #080b10;
+  --bg-surface:     #0d1117;
+  --bg-card:        #111820;
+  --bg-card-hover:  #151e2a;
+  --bg-overlay:     rgba(8, 11, 16, 0.95);
+
+  /* Neon accents */
+  --neon-blue:      #00d4ff;
+  --neon-amber:     #ffb800;
+  --neon-red:       #ff2d55;
+  --neon-green:     #00ff88;
+  --neon-purple:    #bf5af2;
+
+  /* Category colors */
+  --cat-threat:     #ff2d55;
+  --cat-nato:       #00d4ff;
+  --cat-promise:    #ffb800;
+  --cat-reversal:   #bf5af2;
+  --cat-economic:   #00ff88;
+  --cat-legal:      #ff9500;
+  --cat-victory:    #30d158;
+
+  /* Promise status */
+  --status-kept:     #00ff88;
+  --status-broken:   #ff2d55;
+  --status-pending:  #ffb800;
+  --status-reversed: #bf5af2;
+
+  /* Text */
+  --text-primary:   #e8edf5;
+  --text-secondary: #7a8899;
+  --text-muted:     #3d4f63;
+  --text-accent:    #00d4ff;
+
+  /* Borders */
+  --border:         rgba(0, 212, 255, 0.1);
+  --border-bright:  rgba(0, 212, 255, 0.3);
+
+  /* Typography */
+  --font-display:   'Bebas Neue', sans-serif;
+  --font-mono:      'Space Mono', monospace;
+  --font-body:      'Inter', sans-serif;
+
+  /* Spacing */
+  --radius:         4px;
+  --radius-lg:      8px;
+  --nav-height:     64px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  /* Subtle grid background */
+  background-image:
+    linear-gradient(rgba(0, 212, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.025) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-deep); }
+::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--neon-blue); }
+
+/* Selection */
+::selection {
+  background: rgba(0, 212, 255, 0.3);
+  color: var(--text-primary);
+}
+
+/* Links */
+a {
+  color: var(--neon-blue);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+/* Utility classes */
+.font-display { font-family: var(--font-display); }
+.font-mono    { font-family: var(--font-mono); }
+
+.neon-blue   { color: var(--neon-blue); }
+.neon-amber  { color: var(--neon-amber); }
+.neon-red    { color: var(--neon-red); }
+.neon-green  { color: var(--neon-green); }
+
+.glow-blue  { text-shadow: 0 0 20px rgba(0, 212, 255, 0.8); }
+.glow-amber { text-shadow: 0 0 20px rgba(255, 184, 0, 0.8); }
+.glow-red   { text-shadow: 0 0 20px rgba(255, 45, 85, 0.8); }
+
+/* Neon border glow */
+.border-glow {
+  border: 1px solid var(--border-bright);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.05), inset 0 0 20px rgba(0, 212, 255, 0.02);
+}
+
+/* Category pill */
+.cat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Buttons */
+button {
+  cursor: pointer;
+  font-family: var(--font-body);
+  border: none;
+  outline: none;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid var(--neon-blue);
+  color: var(--neon-blue);
+}
+.btn-primary:hover {
+  background: rgba(0, 212, 255, 0.2);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+}
+
+.btn-danger {
+  background: rgba(255, 45, 85, 0.1);
+  border: 1px solid var(--neon-red);
+  color: var(--neon-red);
+}
+.btn-danger:hover {
+  background: rgba(255, 45, 85, 0.2);
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+.btn-ghost:hover {
+  border-color: var(--border-bright);
+  color: var(--text-primary);
+}
+
+/* Input */
+input, textarea, select {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 10px 14px;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: var(--neon-blue);
+  box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.1);
+}
+select option { background: var(--bg-surface); }
+
+/* Animations */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(0, 212, 255, 0.3); }
+  50%       { box-shadow: 0 0 20px rgba(0, 212, 255, 0.7); }
+}
+
+@keyframes scanline {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Loading spinner */
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--border);
+  border-top-color: var(--neon-blue);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Container */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.container-wide {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Page content offset for nav */
+.page-content {
+  padding-top: calc(var(--nav-height) + 24px);
+  min-height: 100vh;
+}
